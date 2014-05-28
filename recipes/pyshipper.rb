@@ -9,10 +9,8 @@
 #
 include_recipe 'build-essential'
 include_recipe 'logstash::default'
-include_recipe 'python::pip'
+include_recipe 'python::default'
 include_recipe 'git'
-
-package 'python-dev'
 
 git "#{node['logstash']['basedir']}/shipper" do
   repository 'git://github.com/lusis/logstash-shipper.git'

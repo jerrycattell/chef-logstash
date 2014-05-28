@@ -7,6 +7,7 @@
 include_recipe 'logstash::default'
 include_recipe 'python::default'
 include_recipe 'logrotate'
+include_recipe 'git'
 
 if node['logstash']['agent']['install_zeromq']
   include_recipe 'logstash::zero_mq_repo'
@@ -15,8 +16,6 @@ if node['logstash']['agent']['install_zeromq']
     action :install
   end
 end
-
-package 'git'
 
 basedir = node['logstash']['basedir'] + '/beaver'
 
